@@ -5,31 +5,31 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  min-width: 500px;
 }
 
 .athletes {
   padding: 30px 35px 0;
   display: grid;
   grid-template-columns: repeat(2, 200px);
-  gap: 30px 40px;
+  gap: 40px 30px;
   justify-items: center;
   place-content: center;
 }
 
- .athlete {
+.athlete {
   text-align: center;
-  padding: 10px;
+
+  transition: transform 1s ease, background-color 0s;
   border-radius: 10px;
-  width: 200px;
-  position: relative;
+  padding: 10px
  }
 
- .athlete:hover {
+.athlete:hover {
   background-color: #EEEEEE;
-  transform: scale(1.1);
   border-radius: 10px;
+  transform: scale(1.2);
   z-index: 10;
-  width: 220;
 }
 
 .athlete__photo {
@@ -45,6 +45,11 @@ body {
   border-radius: 50%;
   object-fit: cover;
   display: block;
+  transition: border-radius 1s ease;
+}
+
+.athlete:hover .athlete__image {
+  border-radius: 30%;
 }
 
 .athlete__rank {
@@ -58,17 +63,13 @@ body {
 
   background-color: #fff;
   border-radius: 50%;
-  width: 32;
-  height: 32;
+  width: 32px;
+  height: 32px;
 
   color: #8B0000;
   font-weight: 700;
   font-size: 16px;
   line-height: 100%;
-}
-
-.athlete__details {
-
 }
 
 .athlete__name {
@@ -84,7 +85,8 @@ body {
 }
 
 .athlete__extra {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
 
   font-weight: 400;
   font-size: 18px;
@@ -92,18 +94,13 @@ body {
   text-align: center;
   color: #000;
   margin-top: 9px;
+
 }
 
 .athlete:hover .athlete__extra {
-  display: block; 
-}
-
-.athlete__sport {
-
-}
-
-.athlete__pay {
-
+  opacity: 1;
+  visibility: visible;
+  padding-bottom: 16px;
 }
 
 @media (min-width: 1000px) {
